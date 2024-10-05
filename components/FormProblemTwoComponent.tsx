@@ -26,7 +26,7 @@ export default function FormProblemTwoComponent() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-5 border rounded-lg shadow-lg bg-white">
-      <h1 className="text-2xl font-bold mb-4 text-center">Formulario 2</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Form 2</h1>
       <form onSubmit={handleSubmit}>
         <textarea
           id="input-1"
