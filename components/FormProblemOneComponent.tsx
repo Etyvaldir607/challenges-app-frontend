@@ -17,7 +17,10 @@ export default function FormProblemOneComponent() {
     const second_multiple_input = input.trim().split('\n').map(line => line.split(' '))[1];
     const r_q = Number(second_multiple_input[0]);
     const c_q = Number(second_multiple_input[1]);
+
     const pairs = input.trim().split('\n').map(line => line.split(' ')).map((e) => e.map(val => JSON.parse(val)));
+    pairs.splice(0,k -1);
+
     const game = {
       board_size: n,
       total_obstacles: k,
