@@ -25,12 +25,13 @@ export default function FormProblemOneComponent() {
       queen_columns: c_q,
       obstacles: pairs,
     }
-
+    setOutput("");
     try {
       const response = await axios.post(process.env.API_URL + '/api/problem-1', game);
       console.log('Response:', response.data);
-      if (response.data?.attacks)
-        setOutput(`${response.data.attacks}`);
+      const res = response.data;
+      if (res.data?.attacks)
+        setOutput(`${res.data?.attacks}`);
     } catch (error) {
       console.error('Error al enviar los datos:', error);
     }
