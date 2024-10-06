@@ -12,13 +12,16 @@ export default function FormProblemTwoComponent() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const pairs = input.trim().split('\n').map(line => line.split(' '));
-
+    const value = input.trim();
+    const game = {
+      string_value: value,
+    }
     try {
-      const response = await axios.post(process.env.API_URL + '/api/problem-2', pairs);
+      const response = await axios.post(process.env.API_URL + '/api/problem-2', game);
       console.log('Response:', response.data);
-      if (response.data?.attacks)
-        setOutput(`${response.data.attacks}`);
+      const res = response.data;
+      if (res.data?.result)
+        setOutput(`${res.data?.result}`);
     } catch (error) {
       console.error('Error al enviar los datos:', error);
     }
@@ -29,7 +32,7 @@ export default function FormProblemTwoComponent() {
       <h1 className="text-2xl font-bold mb-4 text-center">Form 2</h1>
       <form onSubmit={handleSubmit}>
         <textarea
-          id="input-1"
+          id="input-2"
           value={input}
           onChange={handleChange}
           rows={10}
@@ -44,7 +47,7 @@ export default function FormProblemTwoComponent() {
           Enviar
         </button>
       </form>
-      <pre id="output-1" className="mt-4 text-gray-700 p-5 border border-gray-300">{output}</pre>
+      <pre id="output-2" className="mt-4 text-gray-700 p-5 border border-gray-300">{output}</pre>
     </div>
   );
 };
