@@ -23,7 +23,7 @@ export default function FormProblemTwoComponent() {
       if (res.data?.result)
         setOutput(`${res.data?.result}`);
     } catch (error) {
-      console.error('Error al enviar los datos:', error);
+      console.error('Error sending data:', error);
     }
   };
 
@@ -38,7 +38,7 @@ export default function FormProblemTwoComponent() {
           rows={10}
           cols={30}
           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Ingresa pares (separados por salto de línea)"
+          placeholder="Input string"
         />
         <button
           type="submit"
